@@ -2,7 +2,7 @@
   %div.row
     %div.col-md-2
     %div.col-md-8
-      %h4 Анкета #{@test.name}
+      %h4 Описание #{@test.name}
       %table.table
         %tr
           %td
@@ -29,10 +29,12 @@
               %td 
                 = q.body
               %td 
-                = q.type             
+                = q.about             
               %td 
                 = link_to 'Подробнее', test_question_path(@test, q), class: "btn btn-success btn-xs"
                 = "   "
                 = link_to 'Удалить', test_question_path(@test, q), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'точняк?' }
       = link_to 'Назад', tests_path, class: "btn btn-default"
+      = "   "
+      = link_to 'Добавить вопрос', new_test_question_path(@test), class: "btn btn-success"
     %div.col-md-2

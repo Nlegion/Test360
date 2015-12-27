@@ -1,0 +1,42 @@
+%div.container-fluid
+  %div.row
+    %div.col-md-2
+    %div.col-md-8
+      %h3 Новый вопрос в тесте
+      = simple_form_for [@test, @question] do |f|
+        %table
+          %tr
+            %td 
+              = f.input :num, label: 'Порядковый номер'
+          %tr
+            %td
+              = f.input :about, label: 'Тип вопроса'
+          %tr
+            %td
+              = f.input :back, label: 'Обратный'
+          %tr
+            %td
+              = f.input :body, label: 'Вопрос'
+          %tr  
+            %td 
+              = f.button :submit, 'Сохранить', class: "btn btn-primary"
+              = "   " 
+              = link_to 'Назад', tests_path, class: "btn btn-default"
+        %br      
+        %table{:class => 'table table-striped table-bordered'}
+          %tr
+            %th Номер
+            %th Описание
+            %th Тип
+            %th Действия
+          - @test.questions.each do |q| 
+            %tr
+              %td 
+                = q.num
+              %td 
+                = q.body
+              %td 
+                = q.about
+              %td
+                = link_to 'Удалить', test_question_path(@test, q), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'точняк?' }
+    %div.col-md-2

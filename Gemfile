@@ -21,6 +21,7 @@ gem "less-rails"
 gem 'twitter-bootstrap-rails', '~> 3.2', '>= 3.2.2'
 gem 'simple_form', '~> 3.2'
 # gem 'bootstrap-will_paginate', '~> 0.0.10'
+gem 'rubocop', require: false
 
 group :development, :test do
   gem 'byebug'
