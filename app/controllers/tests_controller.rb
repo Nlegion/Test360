@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
 
-http_basic_authenticate_with name: "Nlegion", password: "9346", only: :destroy
+http_basic_authenticate_with name: "nlegion", password: "9346", only: :destroy
  
   def index
     @tests = Test.all
@@ -31,7 +31,7 @@ http_basic_authenticate_with name: "Nlegion", password: "9346", only: :destroy
   def update
     @test = Test.find(params[:id])
    
-    if @test.update(test_params)
+    if @test.update(set_params)
       redirect_to @test
     else
       render 'edit'

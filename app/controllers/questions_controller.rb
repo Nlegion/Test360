@@ -17,11 +17,12 @@
   end
 
   def edit
+    @question = Question.find(params[:id])
   end
 
   def update   
-    if @question.update(question_params)
-      redirect_to test_question_path(@test, @question)
+    if @question.update(set_params)
+      redirect_to test_path(@test)
     else
       render 'edit'
     end
@@ -29,7 +30,7 @@
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@test)
+    redirect_to(:back)
   end
 
   private
