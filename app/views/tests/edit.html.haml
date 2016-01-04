@@ -7,7 +7,13 @@
         %p
           = f.input :name, label: 'Имя теста'
         %p
-          = f.input :description, label: 'Описание теста'     
+          = f.input :description, label: 'Описание теста'
+        %p
+          = f.input :num_of_answ, label: 'Количество ответов'  
+        %p
+          = f.input :type_of_answ, label: 'Тип поля для ответов', collection: ['Шкала', 'Другое']
+        %p
+          = f.input :sp_answer, label: 'Специальный ответ'                
         %table
           %tr
             %td
