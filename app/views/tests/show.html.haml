@@ -14,6 +14,15 @@
         %tr
           %td
             = "Описание: #{@test.description}"
+        %tr
+          %td
+            = "Количество ответов: #{@test.num_of_answ}"
+        %tr
+          %td
+            = "Тип ответов: #{@test.type_of_answ}" 
+        %tr
+          %td           
+            = "Спецответ: #{@test.sp_answer}" 
       - if @test.questions.present?
         %h4 Вопросы
         %table{:class => 'table table-striped table-bordered'}
@@ -37,4 +46,6 @@
       = link_to 'Назад', tests_path, class: "btn btn-default"
       = "   "
       = link_to 'Добавить вопрос', new_test_question_path(@test), class: "btn btn-success"
+      = "   "
+      = link_to 'Форма ответа', test_answers_path(@test), class: "btn btn-default"    
     %div.col-md-2
