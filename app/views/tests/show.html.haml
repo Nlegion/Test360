@@ -29,7 +29,7 @@
           %tr
             %th Номер
             %th Вопрос
-            %th Тип
+            %th Тип           
             %th Действия
           - @test.questions.order(num: :desc).each do |q| 
             %tr
@@ -45,7 +45,7 @@
                 = link_to 'Удалить', test_question_path(@test, q), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Уверен?' }
       = link_to 'Назад', tests_path, class: "btn btn-default"
       = "   "
-      = link_to 'Добавить вопрос', new_test_question_path(@test), class: "btn btn-success"
+      = link_to 'Добавить вопрос', new_test_question_path(@test), class: "btn btn-info"
       = "   "
-      = link_to 'Форма ответа', test_answers_path(@test), class: "btn btn-default"    
+      = link_to 'Пройти тест', get_answ_test_answers_path(@test), class: "btn btn-success"
     %div.col-md-2

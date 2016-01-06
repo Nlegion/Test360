@@ -1,0 +1,35 @@
+%div.container-fluid
+  %div.row
+    %div.col-md-2
+    %div.col-md-8
+      %h4 Тест: "#{@test.name}"
+      = form_tag post_answ_test_answers_path(@test), { class: 'form-class', id: 'form-id', role: 'form', method: 'post' } do
+        .form-group
+          %table{:class => 'table table-bordered'}
+            - @questions.each do |q|
+              %tr
+                %td
+                  %p
+                    = q.body
+                  %p
+                  %table{:class => 'table-condensed table-bordered text-center'}
+                    %tr
+                      - (1..@test.num_of_answ).each do |i|
+                        %td
+                          = label_tag(q.id, "#{i}")
+                          - if i == @test.num_of_answ && @test.sp_answer?
+                            %td
+                              = label_tag(q.id, "Нет ответа")                                                    
+                    %tr
+                      - (1..@test.num_of_answ).each do |i|
+                        %td
+                          = radio_button_tag(q.id, "#{i}")
+                          - if i == @test.num_of_answ && @test.sp_answer?
+                            %td                    
+                              = radio_button_tag(q.id, " ")
+          %table
+            %tr
+              %td
+                = link_to 'Назад', tests_path, class: "btn btn-default"
+                = submit_tag("Отправить", class: "btn btn-default")
+    %div.col-md-2

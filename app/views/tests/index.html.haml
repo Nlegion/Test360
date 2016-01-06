@@ -9,22 +9,23 @@
           %tr
             %th Название
             %th Описание
+            %th Запуск            
             %th Действия
-            %th Запуск
           - @tests.each do |t| 
             %tr
               %td
                 = t.name
               %td 
                 = t.description
+              %td
+                = link_to 'Пройти тест', get_answ_test_answers_path(t), class: "btn btn-success btn-xs" 
               %td 
                 = link_to 'Подробнее', test_path(t), class: "btn btn-info btn-xs"
                 = "   "
                 = link_to 'Редактировать', edit_test_path(t), class: "btn btn-warning btn-xs"
                 = "   "
                 = link_to 'Удалить', test_path(t), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Уверен?' } 
-              %td
-                = link_to 'Пройти тест', '#', class: "btn btn-success btn-xs"
+
       %br
       = link_to 'Создать новый тест', new_test_path, class: "btn btn-default btn" 
     %div.col-md-2             
