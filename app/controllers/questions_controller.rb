@@ -4,6 +4,7 @@
 
   def new
     @question = Question.new
+    @num = @test.questions.maximum(:num) + 1
   end
 
   def create
