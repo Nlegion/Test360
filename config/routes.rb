@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'tests#index' 
   resources :tests do
     resources :questions, except: [:index, :show]

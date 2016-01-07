@@ -40,9 +40,9 @@
     @test = Test.find(params[:test_id]) 
   end
 
-    def load_question
-      @question = Question.find(params[:id])
-    end
+  def load_question
+    @question = Question.find(params[:id])
+  end
 
   def set_params
     params.require(:question).permit(:num, :about, :back, :body)
