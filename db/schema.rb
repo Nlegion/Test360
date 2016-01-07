@@ -15,12 +15,11 @@ ActiveRecord::Schema.define(version: 20160105133517) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "name"
-    t.integer  "test_id"
-    t.integer  "user_id"
     t.integer  "question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-
+    t.integer  "test_id"
+    t.integer  "user_id"
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
