@@ -9,7 +9,7 @@
       %th{:class => 'text-center'} Действия
     - @tests.each do |t| 
       %tr
-        %td
+        %td{:class => 'text-center'}
           = t.name
         %td 
           = t.description
@@ -17,10 +17,11 @@
           = link_to 'Пройти тест', get_answ_test_answers_path(t), class: "btn btn-success btn-xs" 
         %td{:class => 'text-center'} 
           = link_to 'Подробнее', test_path(t), class: "btn btn-info btn-xs"
-          = "   "
-          = link_to 'Редактировать', edit_test_path(t), class: "btn btn-warning btn-xs"
-          = "   "
-          = link_to 'Удалить', test_path(t), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Уверен?' }
+          - if @user.present?
+            = "   "
+            = link_to 'Редактировать', edit_test_path(t), class: "btn btn-warning btn-xs"
+            = "   "
+            = link_to 'Удалить', test_path(t), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Уверен?' }
 %br
 = link_to 'Создать новый тест', new_test_path, class: "btn btn-default btn" 
 

@@ -1,8 +1,6 @@
 class TestsController < ApplicationController
 
   # http_basic_authenticate_with name: "nlegion", password: "9346", only: :destroy
-  before_action :load_user
- 
   def index
     @tests = Test.all
   end
@@ -49,9 +47,5 @@ class TestsController < ApplicationController
 
   def set_params
     params.require(:test).permit(:name, :description, :num_of_answ, :type_of_answ, :sp_answer)
-  end
-
-  def load_user
-    @user = current_user || nil
   end
 end
