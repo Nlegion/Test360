@@ -1,23 +1,18 @@
-%div.container-fluid
-  %div.row
-    %div.col-md-2
-    %div.col-md-8
-      %h3 Создание теста
-      = simple_form_for (@test) do |f|
-        %p
-          = f.input :name, label: 'Создание теста'
-        %p
-          = f.input :description, label: 'Описание теста'
-        %p
-          = f.input :num_of_answ, label: 'Количество ответов'  
-        %p
-          = f.input :type_of_answ, label: 'Тип поля для ответов', collection: ['Шкала', 'Другое'], :selected => 'Шкала'   
-        %p
-          = f.input :sp_answer, label: 'Специальный ответ' 
-        %table
-          %tr
-            %td 
-              = link_to 'Назад', tests_path, class: "btn btn-default"
-              = "   " 
-              = f.button :submit, 'Сохранить', class: "btn btn-primary"
-    %div.col-md-2  
+%h3 Создание теста
+= simple_form_for (@test) do |f|
+  %p
+    = f.input :name, label: 'Создание теста'
+  %p
+    = f.input :description, label: 'Описание теста'
+  %p
+    = f.input :num_of_answ, label: 'Количество ответов'  
+  %p
+    = f.input :type_of_answ, label: 'Тип поля для ответов', collection: ['Шкала', 'Другое'], :selected => 'Шкала'   
+  %p
+    = f.input :sp_answer, label: 'Специальный ответ' 
+  %table
+    %tr
+      %td 
+        = link_to 'Назад', tests_path, class: "btn btn-default"
+        = "   " 
+        = f.button :submit, 'Сохранить', class: "btn btn-primary"
