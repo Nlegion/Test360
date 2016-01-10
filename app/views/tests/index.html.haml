@@ -5,7 +5,7 @@
     %tr
       %th{:class => 'text-center'} Название
       %th{:class => 'text-center'} Описание
-      %th{:class => 'text-center'} Запуск            
+      %th{:class => 'text-center'} Тестирование            
       %th{:class => 'text-center'} Действия
     - @tests.each do |t| 
       %tr
@@ -14,7 +14,9 @@
         %td 
           = t.description
         %td{:class => 'text-center'}
-          = link_to 'Пройти тест', get_answ_test_answers_path(t), class: "btn btn-success btn-xs" 
+          = link_to 'Пройти тест', get_answ_test_answers_path(t), class: "btn btn-success btn-xs"
+          = "   "
+          = link_to 'Результаты', test_results_path(t), class: "btn btn-default btn-xs"
         %td{:class => 'text-center'} 
           = link_to 'Подробнее', test_path(t), class: "btn btn-info btn-xs"
           - if @user.present?

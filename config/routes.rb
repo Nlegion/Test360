@@ -7,5 +7,6 @@ Rails.application.routes.draw do
       get 'get_answ', on: :collection
       post 'post_answ', on: :collection
     end
+    resources :results    
   end
 end

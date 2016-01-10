@@ -1,0 +1,25 @@
+%h4 Результаты теста: "#{@test.name}"
+- if @results.any?
+  %table{:class => 'table table-striped table-bordered'}
+    %tr
+      %th{:class => 'text-center'} ID 
+      %th{:class => 'text-center'} ID пользователя
+      %th{:class => 'text-center'} Действия
+      %th{:class => 'text-center'} № вопроса
+      %th{:class => 'text-center'} Ответ пользователя
+    - @results.each do |t|     
+      %tr
+        %td{:class => 'text-center'}
+          = t.id
+        %td{:class => 'text-center'}
+          = @user.username
+        %td{:class => 'text-center'}
+          = t.question.about  
+        %td{:class => 'text-center'}
+          = t.question.num         
+        %td{:class => 'text-center'}
+          = t.name
+%table
+  %tr
+    %td
+      = link_to 'Назад', test_path(@test), class: "btn btn-default"

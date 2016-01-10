@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_result: 1
+  test_name: MyString
+  name_of_type_quest: MyString
+
+two:
+  id_result: 1
+  test_name: MyString
+  name_of_type_quest: MyString

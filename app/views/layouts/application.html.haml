@@ -9,11 +9,11 @@
   %body
     %nav.navbar.navbar-default{:fixed => :top, :role => :navigation}
       %div.navbar-header
-        %a.navbar-brand{:href => root_path} Тест 360 градусов
+        %a.navbar-brand{:href => root_path} Система тестирования "UniTest"
       %ul.nav.navbar-nav.pull-left
       %ul.nav.navbar-nav.pull-right
         - if user_signed_in?
-          = menu_item "Пользователь #{@user.email}", '#{}'
+          = menu_item "Пользователь #{@user.username}", edit_user_registration_path
           = menu_item 'Выход', destroy_user_session_path, method: :delete
         - else
           = menu_item 'Вход', new_user_session_path

@@ -1,6 +1,7 @@
-%h4 Тест: "#{@test.name}"
+%h4 Тест: "#{@test.name}", попытка № "#{@try_of}"
 = form_tag post_answ_test_answers_path(@test), { class: 'form-class', id: 'form-id', role: 'form', method: 'post' } do
   .form-group
+    = hidden_field_tag "try_of", @try_of
     %table{:class => 'table table-bordered'}
       - @questions.each do |q|
         %tr
@@ -23,7 +24,6 @@
                     - if i == @test.num_of_answ && @test.sp_answer?
                       %td                    
                         = radio_button_tag(q.id, " ")
-    %table
       %tr
         %td
           = link_to 'Назад', tests_path, class: "btn btn-default"
