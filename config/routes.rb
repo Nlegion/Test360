@@ -8,5 +8,6 @@ Rails.application.routes.draw do
       post 'post_answ', on: :collection
     end
     resources :results
+    resources :groups
   end
 end

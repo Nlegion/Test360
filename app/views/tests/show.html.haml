@@ -21,6 +21,8 @@
       = "Спецответ: #{@test.sp_answer}" 
 - if @user.present?
   = link_to 'Добавить вопрос', new_test_question_path(@test), class: "btn btn-info"
+  = "   "
+  = link_to 'Группы', new_test_group_path(@test), class: "btn btn-default"
 - if @test.questions.present?
   %h4 Вопросы
   %table{:class => 'table table-striped table-bordered'}
@@ -37,12 +39,12 @@
         %td 
           = q.body
         %td{:class => 'text-center'} 
-          = q.about             
+          = q.group_id             
         - if @user.present?
           %td{:class => 'text-center'} 
-            = link_to 'Редактировать', edit_test_question_path(@test, q), class: "btn btn-warning btn-xs"
-            = "   "
-            = link_to 'Удалить', test_question_path(@test, q), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Уверен?' }
+            = link_to 'Редактировать', edit_test_question_path(@test, q), class: "btn btn-warning btn-xs btn-block"
+            %p
+            = link_to 'Удалить', test_question_path(@test, q), class: "btn btn-danger btn-xs btn-block", method: :delete, data: { confirm: 'Уверен?' }
 - if @user.present?
   = link_to 'Пройти тест', get_answ_test_answers_path(@test), class: "btn btn-success"
   = "   "
