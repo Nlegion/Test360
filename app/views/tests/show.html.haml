@@ -20,16 +20,17 @@
     %td           
       = "Спецответ: #{@test.sp_answer}" 
 - if @user.present?
-  = link_to 'Добавить вопрос', new_test_question_path(@test), class: "btn btn-info"
-  = "   "
-  = link_to 'Группы', new_test_group_path(@test), class: "btn btn-default"
+  %p{:class => 'text-center'} 
+    = link_to 'Добавить вопрос', new_test_question_path(@test), class: "btn btn-info"
+    = "   "
+    = link_to 'Группы', new_test_group_path(@test), class: "btn btn-default"
 - if @test.questions.present?
   %h4 Вопросы
   %table{:class => 'table table-striped table-bordered'}
     %tr
       %th{:class => 'text-center'} Номер
       %th{:class => 'text-center'} Вопрос
-      %th{:class => 'text-center'} Тип 
+      %th{:class => 'text-center'} Группа 
       - if @user.present?
         %th{:class => 'text-center'} Действия
     - @test.questions.order(num: :desc).each do |q| 
@@ -39,16 +40,15 @@
         %td 
           = q.body
         %td{:class => 'text-center'} 
-          = q.group_id             
+          = q.group_id            
         - if @user.present?
           %td{:class => 'text-center'} 
             = link_to 'Редактировать', edit_test_question_path(@test, q), class: "btn btn-warning btn-xs btn-block"
-            %p
+            = "   "
             = link_to 'Удалить', test_question_path(@test, q), class: "btn btn-danger btn-xs btn-block", method: :delete, data: { confirm: 'Уверен?' }
 - if @user.present?
-  = link_to 'Пройти тест', get_answ_test_answers_path(@test), class: "btn btn-success"
-  = "   "
-  = link_to 'Результаты', test_results_path(@test) , class: "btn btn-default"
-%br
-%br
+  %p{:class => 'text-center'} 
+    = link_to 'Пройти тест', get_answ_test_answers_path(@test), class: "btn btn-success"
+    = "   "
+    = link_to 'Результаты', test_results_path(@test) , class: "btn btn-default"
 = link_to 'Назад', tests_path, class: "btn btn-default"

@@ -1,20 +1,22 @@
 
 %h4 Редактирование вопроса № "#{@question.num}"      
 = simple_form_for [@test, @question], method: :put do |f|
-  %p
-    = f.input :group_id, label: 'Тип вопроса'
-  %p
-    = f.input :group_id, collection: @groups, label_method: :group_name, value_metod: :id, selected: 1  
-  %p
-    = f.input :body, label: 'Вопрос'    
-  %p
-    = f.input :back, label: 'Обратный'     
-  %table
+  %table{:class => 'table table-striped table-bordered'}
     %tr
       %td
-        = link_to 'Назад', test_path(@test), class: "btn btn-default"
-        = "   " 
-        = f.button :submit, 'Сохранить', class: "btn btn-primary"
+        = f.input :group_id, label: 'Тип вопроса'
+      %td
+        = f.input :group_id, label: 'Группа', collection: @groups, label_method: :group_name, value_metod: :id, selected: 1  
+    %tr  
+      %td
+        = f.input :back, label: 'Обратный'     
+      %td
+        = f.input :body, label: 'Вопрос'    
+
+  %p{:class => 'text-center'} 
+    = link_to 'Назад', test_path(@test), class: "btn btn-default"
+    = "   " 
+    = f.button :submit, 'Сохранить', class: "btn btn-primary"
 %br
 %h4 Введенные вопросы
 %table{:class => 'table table-striped table-bordered'}

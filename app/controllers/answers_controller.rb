@@ -8,7 +8,6 @@ class AnswersController < ApplicationController
   end
 
   def post_answ
-
     @questions.each do |q|
       Answer.create(name: params[q.id.to_s], question_id: q.id, test_id: @test.id, user_id: @user.id, try_of: params[:try_of]) if params[q.id.to_s].present?
     end
@@ -24,5 +23,4 @@ class AnswersController < ApplicationController
   def load_questions
     @questions = @test.questions.order("RANDOM()")
   end
-
 end

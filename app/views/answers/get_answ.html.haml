@@ -22,9 +22,10 @@
                   %td
                     = radio_button_tag(q.id, "#{i}")
                     - if i == @test.num_of_answ && @test.sp_answer?
-                      %td                    
+                      %td                 
                         = radio_button_tag(q.id, " ")
       %tr
         %td
-          = link_to 'Назад', tests_path, class: "btn btn-default"
-          = submit_tag("Отправить", class: "btn btn-default")
+          %p{:class => 'text-center'}
+            = link_to 'Назад', tests_path, class: "btn btn-default"
+            = submit_tag("Отправить", class: "btn btn-default")

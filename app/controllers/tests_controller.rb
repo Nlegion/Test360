@@ -1,6 +1,5 @@
 class TestsController < ApplicationController
 
-  # http_basic_authenticate_with name: "nlegion", password: "9346", only: :destroy
   def index
     @tests = Test.all
   end

@@ -25,6 +25,7 @@ gem 'simple_form', '~> 3.2'
 gem 'rubocop', require: false
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'smarter_csv'
 
 group :development, :test do
   gem 'byebug'
