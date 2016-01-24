@@ -1,3 +1,4 @@
+# ResultsController
 class ResultsController < ApplicationController
   before_action :authenticate_user!, :load_test, :load_questions, :load_answers
 

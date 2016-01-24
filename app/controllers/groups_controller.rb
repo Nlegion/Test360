@@ -1,3 +1,4 @@
+# GroupsController
 class GroupsController < ApplicationController
   before_action :load_test
   before_action :load_group, only: [:edit, :update, :destroy, :show]

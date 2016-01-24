@@ -1,3 +1,4 @@
+# QuestionsController
 class QuestionsController < ApplicationController
   before_action :load_test
   before_action :load_groups
@@ -43,10 +44,6 @@ class QuestionsController < ApplicationController
 
   def load_question
     @question = Question.find(params[:id])
-  end
-
-  def load_test
-    @test = Test.find(params[:test_id]) 
   end
 
   def load_groups

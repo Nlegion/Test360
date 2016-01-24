@@ -14,7 +14,7 @@
         %td 
           = t.description
         %td{:class => 'text-center'}
-          = link_to 'Пройти тест', get_answ_test_answers_path(t), class: "btn btn-success btn-xs btn-block"
+          = link_to 'Пройти тест', new_answer_test_answers_path(t), class: "btn btn-success btn-xs btn-block"
           %p
           = link_to 'Результаты', test_results_path(t), class: "btn btn-default btn-xs btn-block"
         %td{:class => 'text-center'} 
