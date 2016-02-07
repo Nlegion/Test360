@@ -1,0 +1,39 @@
+%h3 Новый вопрос в тесте
+= simple_form_for [@test, @question] do |f|
+  %table{:class => 'table table-striped table-bordered'}
+    %tr
+      %td 
+        = f.input :num, label: 'Порядковый номер', input_html: {value: "#{@num}"}
+    %tr
+      %td
+        = f.input :group_id, collection: @groups, label_method: :group_name, value_metod: :id, selected: 1
+    %tr
+      %td
+        = f.input :body, label: 'Вопрос'
+    %tr
+      %td
+        = f.input :back, label: 'Обратный'
+    %tr  
+      %td 
+        = f.button :submit, 'Сохранить', class: "btn btn-primary"
+        = "   " 
+        = link_to 'Назад', test_path(@test), class: "btn btn-default"
+  %br      
+  %table{:class => 'table table-striped table-bordered'}
+    %tr
+      %th Номер
+      %th Вопрос
+      %th Тип
+      %th Действия
+    - @test.questions.order(num: :desc).each do |q| 
+      %tr
+        %td 
+          = q.num
+        %td 
+          = q.body
+        %td 
+          = q.group_id
+        %td{:class => 'text-center'}
+          = link_to 'Редактировать', edit_test_question_path(@test, q), class: "btn btn-warning btn-xs btn-block"
+          %p
+          = link_to 'Удалить', test_question_path(@test, q), class: "btn btn-danger btn-xs btn-block", method: :delete, data: { confirm: 'точняк?' }

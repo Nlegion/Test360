@@ -1,0 +1,36 @@
+%h3 Группы для теста  "#{@test.name}"    
+= simple_form_for [@test, @group] do |f|
+  %table
+    %tr
+      %td
+        = f.input :num, label: '№ группы', input_html: {value: "#{@num}"}    
+    %tr
+      %td
+        = f.input :group_name, label: 'Имя группы'
+    %tr
+      %td
+        = f.input :rule, label: 'Правило'
+    %tr  
+      %td 
+        = f.button :submit, 'Сохранить', class: "btn btn-primary"
+        = "   " 
+        = link_to 'Назад', test_path(@test), class: "btn btn-default"
+  %br      
+  %table{:class => 'table table-striped table-bordered'}
+    %tr
+      %th{:class => 'text-center'} № группы    
+      %th{:class => 'text-center'} Имя группы
+      %th{:class => 'text-center'} Правило
+      %th{:class => 'text-center'} Действия
+    - @test.groups.order(num: :desc).each do |q| 
+      %tr
+        %td{:class => 'text-center'} 
+          = q.num      
+        %td 
+          = q.group_name
+        %td{:class => 'text-center'} 
+          = q.rule
+        %td{:class => 'text-center'}
+          = link_to 'Редактировать', edit_test_group_path(@test, q), class: "btn btn-warning btn-xs btn-block"
+          %p
+          = link_to 'Удалить', test_group_path(@test, q), class: "btn btn-danger btn-xs btn-block", method: :delete, data: { confirm: 'точняк?' }

@@ -1,0 +1,28 @@
+- if @answers.any?
+  %table{:class => 'table table-striped table-bordered'}
+    %tr    
+      %th{:class => 'text-center'} Пользователь: 
+      %td{:class => 'text-center'}
+        = @user.username
+    %tr
+      %th{:class => 'text-center'} Тест: 
+      %td{:class => 'text-center'}
+        = @test.name
+    %tr    
+      %th{:class => 'text-center'} Попытка №: 
+      %td{:class => 'text-center'}
+        = @try_of
+  %table{:class => 'table table-striped table-bordered'}
+    %tr
+      %th{:class => 'text-center'} № вопроса
+      %th{:class => 'text-center'} Ответ пользователя
+    - @last_answers.each do |t|     
+      %tr
+        %td{:class => 'text-center'}
+          = t.question.num         
+        %td{:class => 'text-center'}
+          = t.name
+%table
+  %tr
+    %td
+      = link_to 'Назад', test_path(@test), class: "btn btn-default"

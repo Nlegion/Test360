@@ -15,12 +15,16 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml'
+gem "erb2haml", group: :development
 
 gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails', '~> 3.2', '>= 3.2.2'
 gem 'simple_form', '~> 3.2'
 # gem 'bootstrap-will_paginate', '~> 0.0.10'
+gem 'rubocop', require: false
+gem 'devise'
+gem 'devise-bootstrap-views'
 
 group :development, :test do
   gem 'byebug'

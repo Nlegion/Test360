@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Testing
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-default{:fixed => :top, :role => :navigation}
+      %div.navbar-header
+        %a.navbar-brand{:href => root_path} Система тестирования "UniTest"
+      %ul.nav.navbar-nav.pull-left
+      %ul.nav.navbar-nav.pull-right
+        - if user_signed_in?
+          = menu_item "Пользователь #{@user.username}", edit_user_registration_path
+          = menu_item 'Выход', destroy_user_session_path, method: :delete
+        - else
+          = menu_item 'Вход', new_user_session_path
+          = menu_item 'Регистрация', new_user_registration_path
+    %div.container-fluid
+      %div.row
+        %div.col-md-2
+        %div.col-md-8
+          = yield
+        %div.col-md-2

@@ -1,0 +1,29 @@
+%h4 Редактирование вопроса № "#{@group.num}"      
+= simple_form_for [@test, @group], method: :put do |f|
+  %p
+    = f.input :num, label: '№ вопроса'
+  %p
+    = f.input :group_name, label: 'Имя группы'
+  %p
+    = f.input :rule, label: 'Правило'   
+  %table
+    %tr
+      %td
+        = link_to 'Назад', test_path(@test), class: "btn btn-default"
+        = "   " 
+        = f.button :submit, 'Сохранить', class: "btn btn-primary"
+%br
+%h4 Введенные вопросы
+%table{:class => 'table table-striped table-bordered'}
+  %tr
+    %th{:class => 'text-center'} № группы
+    %th{:class => 'text-center'} Имя группы
+    %th{:class => 'text-center'} Правило 
+  - @test.groups.order(num: :desc).each do |q| 
+    %tr
+      %td 
+        = q.num
+      %td 
+        = q.group_name
+      %td 
+        = q.rule
