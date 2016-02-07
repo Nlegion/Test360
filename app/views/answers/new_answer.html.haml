@@ -1,5 +1,5 @@
 %h4 Тест: "#{@test.name}", попытка № "#{@try_of}"
-= form_tag post_answ_test_answers_path(@test), { class: 'form-class', id: 'form-id', role: 'form', method: 'post' } do
+= form_tag save_answers_test_answers_path(@test), { class: 'form-class', id: 'form-id', role: 'form', method: 'post' } do
   .form-group
     = hidden_field_tag "try_of", @try_of
     %table{:class => 'table table-bordered'}
@@ -22,9 +22,10 @@
                   %td
                     = radio_button_tag(q.id, "#{i}")
                     - if i == @test.num_of_answ && @test.sp_answer?
-                      %td                    
+                      %td                 
                         = radio_button_tag(q.id, " ")
       %tr
         %td
-          = link_to 'Назад', tests_path, class: "btn btn-default"
-          = submit_tag("Отправить", class: "btn btn-default")
+          %p{:class => 'text-center'}
+            = link_to 'Назад', tests_path, class: "btn btn-default"
+            = submit_tag("Отправить", class: "btn btn-default")

@@ -1,17 +1,17 @@
 %h4 Редактирование вопроса № "#{@group.num}"      
 = simple_form_for [@test, @group], method: :put do |f|
-  %p
-    = f.input :num, label: '№ вопроса'
-  %p
-    = f.input :group_name, label: 'Имя группы'
-  %p
-    = f.input :rule, label: 'Правило'   
-  %table
+  %table{:class => 'table table-striped table-bordered'}
     %tr
-      %td
-        = link_to 'Назад', test_path(@test), class: "btn btn-default"
-        = "   " 
-        = f.button :submit, 'Сохранить', class: "btn btn-primary"
+      %td{:class => 'text-center'} 
+        = f.input :num, label: '№ вопроса'
+      %td{:class => 'text-center'} 
+        = f.input :group_name, label: 'Имя группы'
+      %td{:class => 'text-center'} 
+        = f.input :rule, label: 'Правило'   
+  %p{:class => 'text-center'} 
+    = link_to 'Назад', test_path(@test), class: "btn btn-default"
+    = "   " 
+    = f.button :submit, 'Сохранить', class: "btn btn-primary"
 %br
 %h4 Введенные вопросы
 %table{:class => 'table table-striped table-bordered'}

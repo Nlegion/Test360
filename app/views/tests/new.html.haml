@@ -10,9 +10,7 @@
     = f.input :type_of_answ, label: 'Тип поля для ответов', collection: ['Шкала', 'Другое'], :selected => 'Шкала'   
   %p
     = f.input :sp_answer, label: 'Специальный ответ' 
-  %table
-    %tr
-      %td 
-        = link_to 'Назад', tests_path, class: "btn btn-default"
-        = "   " 
-        = f.button :submit, 'Сохранить', class: "btn btn-primary"
+  %p{:class => 'text-center'}
+    = link_to 'Назад', tests_path, class: "btn btn-default"
+    = "   " 
+    = f.button :submit, 'Сохранить', class: "btn btn-primary"

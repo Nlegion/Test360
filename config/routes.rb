@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :tests do
     resources :questions, except: [:index, :show]
     resources :answers do
-      get 'get_answ', on: :collection
-      post 'post_answ', on: :collection
+      get 'new_answer', on: :collection
+      post 'save_answers', on: :collection
     end
     resources :results
     resources :groups

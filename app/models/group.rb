@@ -1,3 +1,4 @@
+# Group
 class Group < ActiveRecord::Base
   belongs_to :test
   has_many :questions
